@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8a70ee0ee1.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./images/auto-10.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.css">
+    <link rel="stylesheet" href="./estilos/index.css">
+    <link rel="stylesheet" href="./estilos/products.css">
+    <link rel="stylesheet" href="./estilos/services.css">
+    <link rel="stylesheet" href="./estilos/form-taller.css">
+    <link rel="stylesheet" href="./estilos/form-signup.css">
+    <link rel="stylesheet" href="./estilos/form-login.css">
+    <link rel="stylesheet" href="./estilos/pay-form.css">
+    <link rel="stylesheet" href="./estilos/follow.css">
+    <title>Clasic Cars</title>
+</head>
+
+<body>
+    <header class="d-flex flex-row-reverse">
+        <div class="title">
+            <h2>Clasic Cars</h2>
+        </div>
+        <nav class="nav d-none">
+            <div class="personal-shop">
+                <i class="fas fa-shopping-cart" onclick="renderCarrito()"></i>
+            </div>
+        </nav>
+        <div class="signin-options d-flex" id="container-btn-signin">
+            <button class="btn btn-info" onclick="renderLogin()">
+                Login
+            </button>
+            <button class="btn btn-success ml-3" onclick="renderSignUp()">
+                Sign In
+            </button>
+        </div>
+        <div class="signin-options d-none" id="container-btn-logout">
+            <button class="btn btn-secondary" onclick="renderLogout()">
+                Log out
+            </button>
+        </div>
+    </header>
+    <section class="container-fluid mt-0 p-0" id="container">
+        
+    </section>
+
+    
+    <script src="./javascript/resource.js"></script>
+    <script src="./javascript/partials/indexHTML.js"></script>
+    <script src="./javascript/partials/formBankAccount.js"></script>
+    <script src="./javascript/partials/formCardCredit.js"></script>
+    <script src="./javascript/partials/formMercadoPago.js"></script>
+    <script src="./javascript/partials/signUp.js"></script>
+    <script src="./javascript//partials/formLogin.js"></script>
+    <script src="./javascript//partials/follow.js"></script>
+    <script src="./javascript//partials/formPay.js"></script>
+    <script src="./javascript/serialization/user.js"></script>
+    <script src="./javascript/sign-up/formPersonalInfo.js"></script>
+    <script src="./javascript/sign-up/formsPayment.js"></script>
+    <script src="./javascript/sign-up/getInfoForms.js"></script>
+    <script src="./javascript/sign-up/index.js"></script>
+    <script src="./javascript/login/index.js"></script>
+    <script src="./javascript/history/history.js"></script>
+    <script src="./javascript/compras-reservaciones/buyProducts.js"></script>
+    <script src="./javascript/compras-reservaciones/payProccess.js"></script>
+    <script src="./javascript/compras-reservaciones/followProccess.js"></script>
+    <script src="./javascript/compras-reservaciones/renderCarrito.js"></script>
+    <script src="./javascript/index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+.container-form-talleres, .container-pay-form {
+    min-height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-form-talleres .form-taller {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-form-talleres .form-taller .item {
+    width: 200px !important;
+    margin: 5px;
+}
+
+.container-form-talleres .form-taller .btn {
+    font-size: 14px;
+    margin-top: 5px;
+    width: 200px;
+}
+
+
+
+
+
+

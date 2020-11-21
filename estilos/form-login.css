@@ -1,0 +1,35 @@
+#container-login-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-login {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+    padding-top: 30px !important;
+    background-color: rgb(245, 244, 244);
+    box-shadow: #444a 0 10px 10px;
+}
+
+#form-login label {
+    color: rgb(43, 144, 226);
+
+}
+
+#form-login input {
+    outline: none !important;
+    margin-bottom: 30px;
+    color: #555;
+    padding: 11px;
+}
+
+
+
+
+
+

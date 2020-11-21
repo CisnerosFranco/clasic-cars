@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid {
+    background-image: url('../images/auto-10.png');
+    height: 92vh !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    overflow: auto;
+    background-color: #f6f6f6;
+}  
+
+header {
+    height: 8vh;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8f8f8;
+    background-color: tomato;
+    box-shadow: #444 0 10px 5px !important;
+    position: s;
+}
+
+
+header .title {
+    font-family: 'Black Ops One';
+    letter-spacing: 1px;
+}
+
+header .nav .personal-shop i {
+    font-size: 25px !important;
+    color: #fffd;
+    text-shadow: #7772 0 5px 5px;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+header .nav .personal-shop i:hover {
+    color: yellow;
+}
+
+header .nav {
+    position: absolute;
+    left: 7%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .signin-options {
+    position: absolute;
+    right: 10%;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
