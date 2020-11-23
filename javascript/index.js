@@ -77,7 +77,6 @@
         hiddenBtnSignIn();
         container.innerHTML = signUp;
         insertHistory('signup', 'rendersignup');
-        alert('Tu cuenta de usuario fue creada de forma exitosa!');
         controllSignUp(renderLogin);
     }
 

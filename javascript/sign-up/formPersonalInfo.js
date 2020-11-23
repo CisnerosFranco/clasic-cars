@@ -84,8 +84,8 @@ function validateEmail(input, callback) {
 
 function validatePassword(input, callback) {
     const value = input.value.trim();
-    if(value.length < 4 || value.length > 10 ) {
-        return callback('El campo Password debe contener entre 4y 10 caracteres, Alfa-Numericos.');
+    if(value.length < 8 ) {
+        return callback('El campo Password debe contener por lo menos 8 caracteres Alfa-Numericos.');
     }
     return regPass.test(value) ? true : callback('El campo Password contiene caracteres no permitios.')
 }

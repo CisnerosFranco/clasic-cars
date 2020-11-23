@@ -6,6 +6,7 @@ const controllSignUp = (next) => {
         event.preventDefault();
         if (validateSecondaryForms()) {
             saveAsUser(getInfoSignUp());
+            alert('Tu cuenta de usuario fue creada de forma exitosa!');
             return next(); // con esta callback volvemos al index, ya registrado el usuario.
         }
     })
