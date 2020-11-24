@@ -77,7 +77,13 @@
         hiddenBtnSignIn();
         container.innerHTML = signUp;
         insertHistory('signup', 'rendersignup');
-        controllSignUp(renderLogin);
+        controllSignUp(() => {
+            container.innerHTML = encuestaForm;
+            document.getElementById('form-encuesta').addEventListener('submit',e => {
+                e.preventDefault();
+                chequerRespuesta(renderLogin);
+            }) ;
+        });
     }
 
     window.renderLogin = () => {
@@ -188,6 +194,44 @@
         operations();
     }
 
+    function chequerRespuesta(next) {
+        if(!checkedUno()){
+            mostrarError('Debes selecionar al una opcion');
+        }
+        else if(checkedUno() && checkAux()) {
+            alert('Gracias por responder nuestra encuesta.')
+            return next();
+        } 
+    }
+
+    function checkedUno() {
+        let ret = false;
+        document.querySelectorAll('.medio-conocer').forEach(elem => {
+            if(elem.checked) {
+                ret = true;
+            }
+        })
+        return ret;
+    }
+
+    function checkAux() {
+        let ret = false;
+        document.querySelectorAll('.medio-conocer').forEach(elem => {
+            if(elem.checked) {
+                if(elem.classList.contains('otro-cliente')) {
+                    if(document.getElementById('cliente-que-sugirio').value.trim().length < 5) {
+                       return mostrarError('Debes indicar el email del cliente que te recomendo');
+                    }
+                    else {
+                        ret = true;
+                    }
+                }else{
+                    ret = true;
+                }
+            }
+        })
+        return ret;
+    }
     window.renderLogout = () => {
         usuarioLogeado = null;
         renderMain();

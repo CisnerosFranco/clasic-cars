@@ -16,7 +16,7 @@ function getInfoAccountBank() {
             methodName : 'Cuenta Bancaria',
             CUIT : document.getElementById('cuit').value.trim(),
             CBU : document.getElementById('cbu').value.trim(),
-            codigo : document.getElementById("code-security-bank").vlue.trim()
+            codigo : document.getElementById('code-security-bank').value.trim()
         }
     }
 }
