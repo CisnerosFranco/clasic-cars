@@ -6,7 +6,7 @@ function getPersonalInfo() {
         DNI: document.getElementById('dni').value,
         apellido: document.getElementById('last-name').value.trim(),
         nombre: document.getElementById('name').value.trim(),
-        type: 'regular'
+        type: 'standard'
     }
 }
 

@@ -3,7 +3,7 @@ const productos = [
     {
         img : './images/llaves-por-cinco',
         nombre : 'Juego de llaves combinadas x 5',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'articulo de mecanica',
         ubicación : 'Carapachay',
         id : 'l-c-5',
@@ -12,7 +12,7 @@ const productos = [
     {
         img : './images/llave-por-diez.jpg',
         nombre : 'Juego de llaves combinadas x 10',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'articulo de mecanica',
         ubicación : 'Carapachay',
         id : 'l-c-10',
@@ -21,7 +21,7 @@ const productos = [
     {
         img : './images/llaves-por-20',
         nombre : 'Juego de llaves combinadas x 20',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'articulo de mecanica',
         ubicación : 'Carapachay',
         id : 'l-c-20',
@@ -30,7 +30,7 @@ const productos = [
     {
         img : './images/llaves-tubo-20.jpg',
         nombre : 'Llaves tubo x 20',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','accesorios','talleres', 'todas'],
         descripcion : 'articulo de mecanica',
         ubicación : 'Carapachay',
         id : 'l-t-20',
@@ -39,7 +39,7 @@ const productos = [
     {
         img : './images/llaves-tubo-50.jpg',
         nombre : 'Llaves tubo x 50',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','accesorios', 'talleres', 'todas'],
         descripcion : 'articulo de mecanica',
         ubicación : 'Carapachay',
         id : 'l-t-50',
@@ -49,7 +49,7 @@ const productos = [
         img : './images/destornillador.jpg',
         nombre : 'Kit Destornilladores x 10',
         precio : '350',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'articulo de mecanica',
         ubicación : 'Carapachay',
         id : 'd-10',
@@ -58,7 +58,7 @@ const productos = [
     {
         img : './images/destornillador_uno.jpg',
         nombre : 'Kit Destornilladores x 20',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'articulo de mecanica',
         ubicación : 'Carapachay',
         id : 'd-20',
@@ -85,7 +85,7 @@ const productos = [
     {
         img : './images/aire-compresor.jpg',
         nombre : 'Compresor 50 litros 2.5hp',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'herramienta que trabaja con agua, para pulir auto moviles',
         ubicación : 'Carapachay',
         id : 'c-50',
@@ -94,7 +94,7 @@ const productos = [
     {
         img : './images/compresor-100.jpg',
         nombre : 'Compresor 100 litros 2.5hp',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'herramienta que trabaja con agua, para pulir auto moviles',
         ubicación : 'Carapachay',
         id : 'c-100',
@@ -103,7 +103,7 @@ const productos = [
     {
         img : './images/compresor-aire-50-lts.jpg',
         nombre : 'Compresor 200 litros 3hp',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'herramienta que trabaja con agua, para pulir auto moviles',
         ubicación : 'Carapachay',
         id : 'c-200',
@@ -148,7 +148,7 @@ const productos = [
     {
         img : './images/amoladora-uno.png',
         nombre : 'Amoladora 600w',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'herramienta para cortar hierro y membrana entre otros, muy potente.',
         ubicación : 'Carapachay',
         id : 'a-600',
@@ -157,7 +157,7 @@ const productos = [
     {
         img : './images/amoladora-2.jpg',
         nombre : 'Amoladora 820w',
-        categoria : ['herramientas', 'todas'],
+        categoria : ['herramientas','talleres', 'todas'],
         descripcion : 'herramienta para cortar hierro y membrana entre otros, muy potente.',
         ubicación : 'Carapachay',
         id : 'a-820',
@@ -184,7 +184,7 @@ const productos = [
     {
         img : './images/hidro.jpeg',
         nombre : 'Hidro Lavadora Hogar',
-        categoria : ['limpieza', 'todas'],
+        categoria : ['limpieza','talleres', 'todas'],
         descripcion : 'articulo de ',
         ubicación : 'Carapachay',
         id : 'h-l-h',
@@ -193,7 +193,7 @@ const productos = [
     {
         img : './images/hidro-premiun.jpeg',
         nombre : 'Hidro Lavadora Premiun',
-        categoria : ['limpieza', 'todas'],
+        categoria : ['limpieza','talleres', 'todas'],
         descripcion : 'articulo de limpieza, trabaja con agua, a mucha potencia',
         ubicación : 'Carapachay',
         id : 'h-l-p',

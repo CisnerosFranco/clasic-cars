@@ -17,7 +17,7 @@ const signUp = `
                         <div class="birth">
                             <p><input type="number" id="birth-day"  placeholder="day" min="1" max="31">
                                 / <input type="number" id="birth-month"  placeholder="month" min="1" max="12">
-                                / <input type="number" id="birth-year"  placeholder="year" min="1950" max="2010"></p>
+                                / <input type="number" id="birth-year"  placeholder="year" min="1940" max="2010"></p>
                         </div>
                     </fieldset>
                     <fieldset class="pb-5">
@@ -81,7 +81,7 @@ const signUp = `
                         <label for="model">Modelo</label>
                         <input type="text"  id="model" placeholder="write model">
                         <label for="year">Año</label>
-                        <input type="number"  id="year" placeholder="write year" min="1960" max="2021">
+                        <input type="number"  id="year" placeholder="write year" min="1960" max="2020">
                         <label for="color">Color</label>
                         <input type="text"  id="color" placeholder="write color">
                         <label for="domain">Dominio</label>

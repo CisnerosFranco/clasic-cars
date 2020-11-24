@@ -73,8 +73,8 @@ function validateCUIT(input, callback) {
 
 function validateNumCard(input, callback) {
     const value = input.value.trim();
-    return (value.length >= 8 && value.length < 15 && regNum.test(value)) ? true 
-    : callback('El numero de la Targeta de Credito debe Contener entre 8 14 numeros.')  
+    return (value.length >= 12 && value.length <= 14 && regNum.test(value)) ? true 
+    : callback('El numero de la Targeta de Credito debe Contener entre 12 y 14 numeros.')  
 }
 
 function validateExpirationCard(input, callback) {
@@ -106,7 +106,7 @@ function validateSecurityCode(input, callback) {
     else if(input.id === "code-security-bank") {
         campo = 'Cuenta Bancaria';
     }
-    return (value.length > 4 && regPass.test(value)) ? true
+    return (value.length >= 6 && regPass.test(value)) ? true
     : callback(`El campo Codigo de seguridad para ${campo} debe ser completado, solo con caracteres Alfa-Numericos.`);
 }
 

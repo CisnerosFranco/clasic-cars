@@ -9,7 +9,6 @@ const regNum = /^\d+$/
 
 
 function validatePersonalInfo() {
-    const resultValidUser = validateUser(mostrarError);
     const resultPass = validatePassword(document.getElementById('password'), mostrarError)
     const resultEmail = validateEmail(document.getElementById('email'), mostrarError)
     const resultDay = validateBirth(document.getElementById('birth-day'), mostrarError)
@@ -19,8 +18,10 @@ function validatePersonalInfo() {
     const resultSurname = validateName(document.getElementById('last-name'), mostrarError)
     const resultName = validateName(document.getElementById('name'), mostrarError)
     
-    if(resultName && resultSurname && resultEmail && resultPass && resultDNI && resultDay && resultMonth && resultYear && resultValidUser) {
-        return true;
+    if(resultName && resultSurname && resultEmail && resultPass && resultDNI && resultDay && resultMonth && resultYear ) {
+        if(validateUser(mostrarError)) {
+            return true;
+        }
     }
 }
 
@@ -73,7 +74,27 @@ function validateDNI(input, callback) {
 }
 
 function validateBirth(input, callback) {
-    const value = input.value.trim();
+    const value = Number(input.value.trim());
+    const id = input.id;
+    let limite = 0;
+    let campo = '';
+    if(id === 'birth-day') {
+        campo = 'dia';
+        limite = 31;
+    }
+    else if( id === 'birth-month'){
+        campo = 'mes';
+        limite = 12;
+    }
+    else {
+        campo = 'año';
+        limite = 2010;
+    }
+
+    if(value > limite) {
+        return callback(`El campo ${campo} no debe superar los valores ${campo}`);
+    }
+
     return regNum.test(value) ? true : callback(`El campo Nacimiento debe ser completado.`); 
 }
 
