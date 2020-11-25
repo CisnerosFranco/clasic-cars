@@ -88,7 +88,7 @@ function validateBirth(input, callback) {
     }
     else {
         campo = 'año';
-        limite = 2010;
+        limite = 2002;
     }
 
     if(value > limite) {
@@ -114,7 +114,7 @@ function validatePassword(input, callback) {
 function validateUser(callback) {
     const email = document.getElementById('email').value.trim();
     if(existsUser(email)) {
-        callback('El Email ingresado ya se encuentra registrado');
+        return callback('El Email ingresado ya se encuentra registrado');
     }
     return true;
 }

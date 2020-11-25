@@ -3,7 +3,7 @@ const encuestaForm = `
             <div class="col-10 col-lg-8 m-auto" style="height: 80%;">
                 <form  class="border p-5 rounded" id="form-encuesta">
                     <div class="medio-de-conocimiento">
-                        <label for="medio" class="text-muted mb-3"><h5>Decinos a travez de que medios conociste nuestra pagina.</h5></label>
+                        <label for="medio" class="text-muted mb-3"><h5>Contanos a traves de que medios conociste nuestra pagina.</h5></label>
                         
                         <p><input type="radio" name="medio" class="medio-conocer internet"> Navegando por Internet</p>
                         <p><input type="radio" name="medio" class="medio-conocer redes-sociales"> Redes Sociales</p>
