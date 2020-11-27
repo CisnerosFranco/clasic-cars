@@ -6,7 +6,7 @@ const formBankAccount = `
             <label for="cuit">CUIT</label>
             <input type="number" id="cuit" placeholder="write" minlength="10" maxlength="10">
             <label for="code-security-bank">Codigo de Seguridad</label>
-            <input type="number" id="code-security-bank" placeholder="write" minlength="10" maxlength="10">
+            <input type="text" id="code-security-bank" placeholder="write" minlength="10" maxlength="10">
         </fieldset>`
 
 

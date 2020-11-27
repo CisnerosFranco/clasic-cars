@@ -9,10 +9,6 @@ const formPay = (typeUser, monto, costoEnvio, options) => {
                     </select>
                     <label for="security-code">Codigo de seguridad</label>
                     <input type="password" id="security-code" class="w-75 p-2 border rounded" placeholder="security code">
-                    <label for="name-addres">Direcion de Envio</label>
-                    <input type="text" id="name-addres" class="w-75 p-2 border rounded" placeholder="addres">
-                    <label for="number-addres">Número de Dirección</label>
-                    <input type="number" id="number-addres" class="w-75 p-2 border rounded" placeholder="number">
                     <div class="container-data-pay pt-4 w-75">
                         <div><strong>tipo de cliente: </strong><span class="type-client">${typeUser}</span></div>
                         <div class="monto">

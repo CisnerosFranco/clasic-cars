@@ -13,6 +13,8 @@ const signUp = `
                         <input type="text" id="last-name" placeholder="write your last name">
                         <label for="dni">DNI</label>
                         <input type="number"  id="dni" placeholder="write your DNI">
+                        <label for="address">Domicilio</label>
+                        <input type="text" id="address" required placeholder="write your address">
                         <label for="birth-day">Fecha de Nacimiento</label>
                         <div class="birth">
                             <p><input type="number" id="birth-day"  placeholder="day" min="1" max="31">

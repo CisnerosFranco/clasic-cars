@@ -52,12 +52,12 @@ const controllSignUp = (next) => {
         const forms = document.querySelectorAll('#secondary-form .form');
 
         const resultados = [];
-
+     
         forms.forEach(form => {
             if (form.id === 'form-mercado-pago') {
                 resultados.push(validateMercadoPago(form));
             }
-            else if (form.id === 'card-credit') {
+            else if (form.id === 'form-card-credit') {
                 resultados.push(validateCreditCard())
             }
             else if (form.id === 'form-bank-account') {
@@ -67,7 +67,7 @@ const controllSignUp = (next) => {
                 resultados.push(validateInfoCar());
             }
         })
-
+        console.log(resultados);
         return resultados.find(elem => elem == false) == false ? false : true;
     }
 }

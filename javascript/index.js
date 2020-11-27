@@ -35,7 +35,7 @@
         container.innerHTML = '';
         servicios.forEach(servicio => {
             container.innerHTML +=
-                `<div class="servicio">
+                `<div class="servicio ${servicio.id}">
                     <div class="categoria">
                         ${servicio.categoria}
                     </div>
@@ -186,17 +186,23 @@
     }
 
     window.renderCarrito = () => {
-        insertHistory('carrito', 'rendercarrito');
-        container.innerHTML = follow;
-        renderProducts(document.getElementById('productos-seguidos'), getFollowProducts(usuarioLogeado), 'todas');
-        renderServices(document.getElementById('servicios-seguidos'), getFollowServices(usuarioLogeado));
-        renderUserProducts(document.getElementById('productos-comprados'), usuarioLogeado);
-        operations();
+       if(usuarioLogeado) {
+            insertHistory('carrito', 'rendercarrito');
+            container.innerHTML = follow;
+            renderProducts(document.getElementById('productos-seguidos'), getFollowProducts(usuarioLogeado), 'todas');
+            renderServices(document.getElementById('servicios-seguidos'), getFollowServices(usuarioLogeado));
+            renderUserProducts(document.getElementById('productos-comprados'), usuarioLogeado);
+            operations();
+            document.querySelector('nav').classList.add('d-none');
+       }
+       else {
+           renderMain();
+       }
     }
 
     function chequerRespuesta(next) {
         if(!checkedUno()){
-            mostrarError('Debes selecionar al una opcion');
+            mostrarError('Debes selecionar una opción');
         }
         else if(checkedUno() && checkAux()) {
             alert('Gracias por responder nuestra encuesta.')

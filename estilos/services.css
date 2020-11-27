@@ -10,7 +10,6 @@
 }
 
 .container-articles .container-services .servicio {
-    background-color: rgba(86, 179, 255, 0.979);
     height: 100px;
     width: 100%;
     border-radius: 5px;
@@ -77,29 +76,32 @@
     align-self: start;
 }
 
+.container-articles .container-services .s-c-p {
+    background-color: rgba(86, 179, 255, 0.979);
+}
 
-.container-articles .container-services .servicio:nth-child(2) {
+.container-articles .container-services .s-t {
     background-color: hotpink;
 }
 
-.container-articles .container-services .servicio:nth-child(3) {
+.container-articles .container-services .s-v {
     background-color: rgba(253, 59, 59, 1);
 }
 
-.container-articles .container-services .servicio:nth-child(4) {
+.container-articles .container-services .s-r-p {
     background-color: rgba(0, 255, 0, 1);
 }
-.container-articles .container-services .servicio:nth-child(5) {
+.container-articles .container-services .s-r-i {
     background-color: rgb(1, 68, 85);
 }
-.container-articles .container-services .servicio:nth-child(6) {
+.container-articles .container-services .s-g {
     background-color: rgb(172, 5, 214);
 }
-.container-articles .container-services .servicio:nth-child(7) {
+.container-articles .container-services .s-m-i {
     background-color: rgba(8, 53, 95, 1);
 }
 
-.container-articles .container-services .servicio:nth-child(8) {
+.container-articles .container-services .s-l-d-c {
     background-color: orangered;
 }
 

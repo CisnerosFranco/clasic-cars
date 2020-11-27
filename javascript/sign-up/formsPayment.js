@@ -5,7 +5,7 @@ function validateBankAccount() {
     const resultCUIT = validateCUIT(document.getElementById('cuit'), mostrarError);
     const resultCBU = validateCBU(document.getElementById('cbu'), mostrarError);
     const resultCode = validateSecurityCode(document.getElementById("code-security-bank"), mostrarError);
-    return (resultCBU && resultCUIT && resultCode) ? true : false;
+    return (resultCBU && resultCUIT && resultCode) == true;
 }
 
 function validateCreditCard() {
@@ -16,14 +16,14 @@ function validateCreditCard() {
     const resultOwner = validateOwnerCard(document.getElementById('owner'), mostrarError);
     const resultNumber = validateNumCard(document.getElementById('number-card'), mostrarError);
     
-    return (resultNumber && resultOwner && resultDay && resultMonth && resultYear && resultCode) ? true : false;
+    return (resultNumber && resultOwner && resultDay && resultMonth && resultYear && resultCode) === true;
 }
 
 function validateMercadoPago() {
     const resultCode = validateSecurityCode(document.getElementById('code-mercado-pago'), mostrarError);
     const resultEmail= validateEmail(document.getElementById('email-mercado-pago'), mostrarError);
     
-    return (resultEmail && resultCode) ? true : false;
+    return (resultEmail && resultCode) == true;
 }
 
 
@@ -34,7 +34,7 @@ function validateInfoCar() {
     const resultModel= validateBrand(document.getElementById('model'), mostrarError);
     const resultBrand = validateBrand(document.getElementById('brand'), mostrarError);
 
-    return (resultYear && resultDomain && resultColor && resultModel && resultBrand) ? true : false;
+    return (resultYear && resultDomain && resultColor && resultModel && resultBrand) == true;
 }
 
 
@@ -79,7 +79,7 @@ function validateNumCard(input, callback) {
 
 function validateExpirationCard(input, callback) {
     const value = input.value.trim();
-    return regNum.test(value) ? true : callback('El campo Expiración de la targeta debe ser completado.'); 
+    return regNum.test(value) ? true : callback('El campo Expiración de la Targeta debe ser completado.'); 
 }
 
 function validateOwnerCard(input, callback) {

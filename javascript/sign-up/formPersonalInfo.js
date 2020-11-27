@@ -6,8 +6,6 @@ const regEmail = /^[a-zA-Z@._0-9 ]+$/
 const regPass = /^[a-zA-Z0-9]+$/
 const regNum = /^\d+$/
 
-
-
 function validatePersonalInfo() {
     const resultPass = validatePassword(document.getElementById('password'), mostrarError)
     const resultEmail = validateEmail(document.getElementById('email'), mostrarError)
@@ -17,33 +15,12 @@ function validatePersonalInfo() {
     const resultDNI = validateDNI(document.getElementById('dni'), mostrarError)
     const resultSurname = validateName(document.getElementById('last-name'), mostrarError)
     const resultName = validateName(document.getElementById('name'), mostrarError)
-    
-    if(resultName && resultSurname && resultEmail && resultPass && resultDNI && resultDay && resultMonth && resultYear ) {
+    const resultAddress = validateAddres(mostrarError);
+
+    if(resultName && resultSurname && resultEmail && resultPass && resultDNI && resultDay && resultMonth && resultYear && resultAddress) {
         if(validateUser(mostrarError)) {
             return true;
         }
-    }
-}
-
-
-function validateCardCredit() {
-    const inputs = document.querySelectorAll('#card-credit fieldset input');
-    switch (inputs.id) {
-        case 'number-card':
-            console.log('number-card');
-            break;
-        case 'headline':
-            console.log('headline');
-            break;
-        case 'expiration-day':
-            console.log('expiration-day');
-            break;
-        case 'expiration-month':
-            console.log('expiration-month');
-            break;
-        case 'expiration-year':
-            console.log('nexpiration-year');
-            break;
     }
 }
 
@@ -75,6 +52,7 @@ function validateDNI(input, callback) {
 
 function validateBirth(input, callback) {
     const value = Number(input.value.trim());
+    console.log(value)
     const id = input.id;
     let limite = 0;
     let campo = '';
@@ -95,7 +73,7 @@ function validateBirth(input, callback) {
         return callback(`El campo ${campo} no debe superar los valores ${campo}`);
     }
 
-    return regNum.test(value) ? true : callback(`El campo Nacimiento debe ser completado.`); 
+    return (regNum.test(value) && value != 0)? true : callback(`El campo Nacimiento debe ser completado.`); 
 }
 
 function validateEmail(input, callback) {
@@ -119,7 +97,16 @@ function validateUser(callback) {
     return true;
 }
 
-
+function validateAddres(callback) {
+    let name = document.getElementById('address').value.trim();
+    if(name.length < 6) {
+        return callback('El campo Domicilio debe tener almenos 6 caracteres Alfa-Numericos');
+    }
+    if(!/^[a-zA-Z0-9 ]+$/.test(name)) {
+        return callback('El campo Domicilio debe contener solo caracteres Alfa-Numericos');
+    }
+    return true;
+}
 
 
 
