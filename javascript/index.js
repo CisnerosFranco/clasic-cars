@@ -244,8 +244,8 @@
             mostrarError('Debes selecionar una opción');
         }
         else if (checkedUno() && checkAux()) {
-            alert('Gracias por responder nuestra encuesta.')
-            return next();
+                alert('Gracias por responder nuestra encuesta.')
+                return next();
         }
     }
 
@@ -266,6 +266,9 @@
                 if (elem.classList.contains('otro-cliente')) {
                     if (document.getElementById('cliente-que-sugirio').value.trim().length < 5) {
                         return mostrarError('Debes indicar el email del cliente que te recomendo');
+                    }
+                    else if(document.getElementById('cliente-que-sugirio').value.trim() == usuarioLogeado) {
+                        return mostrarError('No puedes auto referenciarte Perro XD.');
                     }
                     else {
                         ret = true;
