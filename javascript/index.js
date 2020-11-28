@@ -1,7 +1,7 @@
 (function () {
     const container = document.getElementById('container')
     let usuarioLogeado = null; // lo usaremos el email del usuario que es como el id.
-
+    let buyList = [];
 
     function renderProducts(container, listaProductos, categoria) {
         container.innerHTML = '';
@@ -9,7 +9,7 @@
         listaProductos.forEach(producto => {
             if (producto.categoria.indexOf(categoria) >= 0) {
                 productosNuevos +=
-                    `<div class="card product" >
+                    `<div class="card product" id="${producto.id}">
                     <div class="card-header">
                         <img src=${producto.img}>
                     </div>
@@ -25,6 +25,11 @@
                         <span class="follow-not-is" id="not-follow-${producto.id}" data-id="${producto.id}" data-type="product"><i class="far fa-heart"></i></span>
                         <span class="follow-is d-none" id="is-follow-${producto.id}" data-id="${producto.id}" data-type="product"><i class="fas fa-heart"></i></span>
                     </div>
+                    <div class="form-buy-product d-none">
+                        <button class="btn" onclick="cancelBuy('${producto.id}')">CANCELAR</button>
+                        <button class="btn btn-proccess-buy" onclick="procesarCompra()">ABONAR</button>
+                    </div>
+                    <button class="btn btn-add-product bg-warning d-none" onclick="addBuyList('${producto.id}')"><i class="fas fa-cart-plus text-white"></i></button>
                 </div>`
             }
         })
@@ -79,10 +84,10 @@
         insertHistory('signup', 'rendersignup');
         controllSignUp(() => {
             container.innerHTML = encuestaForm;
-            document.getElementById('form-encuesta').addEventListener('submit',e => {
+            document.getElementById('form-encuesta').addEventListener('submit', e => {
                 e.preventDefault();
                 chequerRespuesta(renderLogin);
-            }) ;
+            });
         });
     }
 
@@ -135,32 +140,66 @@
                 else {
                     removeFollowServices(usuarioLogeado, id);
                 }
-                elem.classList.add('d-none');
-                elem.parentNode.children[0].classList.remove('d-none');
+                renderCarrito();
             })
         })
 
         document.querySelectorAll('.product .btn-buy-product').forEach(elem => {
             elem.addEventListener('click', () => {
-                const type = getTypeUser(usuarioLogeado);
-                const precio = Number(productos.find(p => p.id == elem.dataset.id).precio);
-                if (type === 'premiun' && precio > 5000) {
-                    container.innerHTML = formPay(type, `${precio} - 10%`, 0, getMetods(usuarioLogeado));
-                }
-                else if (type === 'premiun') {
-                    container.innerHTML = formPay(type, `${precio} - 10%`, 300, getMetods(usuarioLogeado));
-                }
-                else {
-                    container.innerHTML = formPay(type, precio, 300, getMetods(usuarioLogeado));
-                }
-
-                document.getElementById("pay-form").addEventListener('submit', event => {
-                    event.preventDefault();
-                    buyProduct(usuarioLogeado, elem.dataset.id, () => {
-                        renderCarrito();
-                    });
+                buyList = [];
+                document.querySelector(`#${elem.dataset.id} .form-buy-product`).classList.remove('d-none');
+                hiddenPropertiesProducts();
+                buyList.push(elem.dataset.id);
+                document.querySelectorAll(`.product .btn-add-product`).forEach(p => {
+                    if (p.parentNode.id != elem.dataset.id) {
+                        p.classList.remove('d-none');
+                    }
                 })
             })
+        })
+    }
+    window.cancelBuy = (id) => {
+        renderMain();
+    }
+
+    window.addBuyList = (idProduct) => {
+        const elem = document.querySelector(`#${idProduct} .btn-add-product`);
+        if(!buyList.find(pp => pp ==idProduct)) {
+            elem.classList.remove('bg-warning');
+            elem.classList.add('bg-secondary');
+            buyList.push(idProduct);
+            
+        }
+        console.log(buyList);
+    }
+
+    function getPriceList() {
+        let precio = 0;
+        buyList.forEach(p => {
+            precio +=  Number(productos.find(elem => elem.id == p).precio);
+        })
+        return precio;
+    }
+
+    window.procesarCompra = () => {
+        const type = getTypeUser(usuarioLogeado);
+        const precio = getPriceList();
+        if (type === 'premiun' && precio > 5000) {
+            container.innerHTML = formPay(type, buyList.length, `${precio} - 10%`, 0, getMetods(usuarioLogeado));
+        }
+        else if (type === 'premiun') {
+            container.innerHTML = formPay(type, buyList.length, `${precio} - 10%`, 300, getMetods(usuarioLogeado));
+        }
+        else {
+            container.innerHTML = formPay(type, buyList.length, precio, 300, getMetods(usuarioLogeado));
+        }
+
+        document.getElementById("pay-form").addEventListener('submit', event => {
+            event.preventDefault();
+            buyProduct(usuarioLogeado, buyList, () => {
+                alert('Gracias por su compra. Le dirigimos a su carrito. :D');
+                renderCarrito();
+            });
         })
     }
 
@@ -186,7 +225,7 @@
     }
 
     window.renderCarrito = () => {
-       if(usuarioLogeado) {
+        if (usuarioLogeado) {
             insertHistory('carrito', 'rendercarrito');
             container.innerHTML = follow;
             renderProducts(document.getElementById('productos-seguidos'), getFollowProducts(usuarioLogeado), 'todas');
@@ -194,26 +233,26 @@
             renderUserProducts(document.getElementById('productos-comprados'), usuarioLogeado);
             operations();
             document.querySelector('nav').classList.add('d-none');
-       }
-       else {
-           renderMain();
-       }
+        }
+        else {
+            renderMain();
+        }
     }
 
     function chequerRespuesta(next) {
-        if(!checkedUno()){
+        if (!checkedUno()) {
             mostrarError('Debes selecionar una opción');
         }
-        else if(checkedUno() && checkAux()) {
+        else if (checkedUno() && checkAux()) {
             alert('Gracias por responder nuestra encuesta.')
             return next();
-        } 
+        }
     }
 
     function checkedUno() {
         let ret = false;
         document.querySelectorAll('.medio-conocer').forEach(elem => {
-            if(elem.checked) {
+            if (elem.checked) {
                 ret = true;
             }
         })
@@ -223,15 +262,15 @@
     function checkAux() {
         let ret = false;
         document.querySelectorAll('.medio-conocer').forEach(elem => {
-            if(elem.checked) {
-                if(elem.classList.contains('otro-cliente')) {
-                    if(document.getElementById('cliente-que-sugirio').value.trim().length < 5) {
-                       return mostrarError('Debes indicar el email del cliente que te recomendo');
+            if (elem.checked) {
+                if (elem.classList.contains('otro-cliente')) {
+                    if (document.getElementById('cliente-que-sugirio').value.trim().length < 5) {
+                        return mostrarError('Debes indicar el email del cliente que te recomendo');
                     }
                     else {
                         ret = true;
                     }
-                }else{
+                } else {
                     ret = true;
                 }
             }

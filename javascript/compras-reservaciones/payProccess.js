@@ -1,12 +1,13 @@
-function buyProduct(email, id, next) {
-    let producto = productos.find(p => p.id === id);
-    producto.date = new Date().toLocaleDateString();
+function buyProduct(email, buyList, next) {
     if(validatePay(email)) {
-        alert(`Felicidades, compro el producto ${producto.nombre}`);
-        addUserProducts(email, id);
+        buyList.forEach(idP => {
+            addUserProducts(email, idP);
+        })
         return next();
     }
 }
+
+
 
 function validatePay(emailUser) {
     const method = document.getElementById('select-pay-method').value.trim();

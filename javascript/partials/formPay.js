@@ -1,4 +1,4 @@
-const formPay = (typeUser, monto, costoEnvio, options) => {
+const formPay = (typeUser, cantidad, monto, costoEnvio, options) => {
     return `
         <div class="container-pay-form bg-secondary">
             <div class="col-12 col-sm-9 col-md-8 col-lg-7 col-xl-6">
@@ -11,6 +11,9 @@ const formPay = (typeUser, monto, costoEnvio, options) => {
                     <input type="password" id="security-code" class="w-75 p-2 border rounded" placeholder="security code">
                     <div class="container-data-pay pt-4 w-75">
                         <div><strong>tipo de cliente: </strong><span class="type-client">${typeUser}</span></div>
+                        <div class="monto mb-1">
+                            <span><strong>${cantidad} productos</strong></span>
+                        </div>
                         <div class="monto">
                             <span><strong>monto de compra</strong> $</span>
                             <span class="precio-product">${monto}</span>
