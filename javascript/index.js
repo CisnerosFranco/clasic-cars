@@ -140,7 +140,12 @@
                 else {
                     removeFollowServices(usuarioLogeado, id);
                 }
-                renderCarrito();
+                if(history.state.template == 'rendermain') {
+                    renderMain();
+                }
+                else {
+                    renderCarrito();
+                }
             })
         })
 

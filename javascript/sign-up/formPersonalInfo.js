@@ -66,11 +66,11 @@ function validateBirth(input, callback) {
     }
     else {
         campo = 'año';
-        limite = 2002;
+        limite = 2010;
     }
 
     if(value > limite) {
-        return callback(`El campo ${campo} no debe superar los valores ${campo}`);
+        return callback(`El campo ${campo} no debe superar los valores ${limite}`);
     }
 
     return (regNum.test(value) && value != 0)? true : callback(`El campo Nacimiento debe ser completado.`); 
