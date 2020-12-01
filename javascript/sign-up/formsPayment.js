@@ -101,7 +101,7 @@ function validateSecurityCode(input, callback) {
         campo =  'Mercado Pago'; 
     }
     else if(input.id === 'code-credit-card') {
-        campo = 'Targeta de Credito';
+        campo = 'Tarjeta de Credito'
     }  
     else if(input.id === "code-security-bank") {
         campo = 'Cuenta Bancaria';
