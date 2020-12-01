@@ -1,6 +1,6 @@
 const formCardCredit = `
     <fieldset class="form w-100 mb-1 " style="box-shadow: none; padding-bottom: 0 !important;" id="form-card-credit">
-        <label for="number-card">Numero de Targeta</label>
+        <label for="number-card">Numero de Tarjeta</label>
         <input type="number"  id="number-card" placeholder="write">
         <label for="owner">Titular</label>
         <input type="text" id="owner" placeholder="write">
